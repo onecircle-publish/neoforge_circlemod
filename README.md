@@ -1,25 +1,16 @@
+## CircleMod开发记录
 
-Installation information
-=======
+### 注册入口
+找到`com.circle.circlemod.resource.CircleResource`，在static块中定义注册内容。
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+例如注册一个Item物品
+```Java
+public class CircleResource {
+    static {
+        CircleUniRegister.registerItem(ResourceLocation.GOLD_STAFF, GoldStaff::new);
+    }
+}
+```
+这是neoforge的一个Deferred注册的封装，第一个参数是物品id，第二个参数是一个`Supplier`
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+GoldStaff就是该物品的实现类，如果没有任何特别的需求，第二个参数可以替换成`() -> new Item.Properties()`。
