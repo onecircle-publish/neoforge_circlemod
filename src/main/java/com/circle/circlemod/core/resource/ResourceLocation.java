@@ -9,7 +9,8 @@ import net.minecraft.resources.ResourceKey;
  * @date 2024/12/12
  */
 public enum ResourceLocation {
-    GOLD_STAFF("gold_staff", "金法杖");
+    GOLD_STAFF("gold_staff", "金法杖"),
+    PICKAXE_ULTRA("pickaxe_ultra", "升级版稿子");
 
     public final String key;
     public final String name;

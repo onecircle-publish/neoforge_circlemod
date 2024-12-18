@@ -2,6 +2,7 @@ package com.circle.circlemod.core.resource;
 
 import com.circle.circlemod.core.build.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
+import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
 
 /**
  * Circle 资源
@@ -13,5 +14,6 @@ import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 public class CircleResource {
     static {
         CircleUniRegister.registerItem(ResourceLocation.GOLD_STAFF, GoldStaff::new);
+        CircleUniRegister.registerItem(ResourceLocation.PICKAXE_ULTRA, () -> new PickaxeUltra());
     }
 }
