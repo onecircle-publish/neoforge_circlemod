@@ -18,7 +18,8 @@ public enum ResourceLocation {
         {
             put(TranslateKey.HOVER.key, "一个挖掘神器");
         }
-    });
+    }),
+    AXOLOTL_SWORD("axolotl_sword", "美西螈剑");
 
     public final String key;
     public final String name;

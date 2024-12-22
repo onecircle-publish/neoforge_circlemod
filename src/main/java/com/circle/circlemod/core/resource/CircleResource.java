@@ -1,6 +1,7 @@
 package com.circle.circlemod.core.resource;
 
 import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
 
@@ -15,5 +16,7 @@ public class CircleResource {
     static {
         CircleUniRegister.registerItem(ResourceLocation.GOLD_STAFF, GoldStaff::new);
         CircleUniRegister.registerItem(ResourceLocation.PICKAXE_ULTRA, () -> new PickaxeUltra());
+        CircleUniRegister.registerItem(ResourceLocation.AXOLOTL_SWORD, AxolotlSword::new);
+
     }
 }
