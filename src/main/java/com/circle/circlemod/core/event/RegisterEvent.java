@@ -18,4 +18,5 @@ public class RegisterEvent {
         registrar.playBidirectional(SyncMovementPayload.TYPE, SyncMovementPayload.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(SyncMovementPayload::handle, null));
     }
+
 }
