@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 @Mod(CircleMod.MODID)
 public class CircleMod {
     public static final String MODID = "circle";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public CircleUniRegister circleUniRegister = null;
 
     /**

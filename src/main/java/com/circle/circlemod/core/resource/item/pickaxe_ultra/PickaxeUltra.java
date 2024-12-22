@@ -1,8 +1,12 @@
 package com.circle.circlemod.core.resource.item.pickaxe_ultra;
 
+import com.circle.circlemod.core.resource.ResourceLocation;
 import com.circle.circlemod.core.resource.entity.vanilla_extends.item_entity.CircleItemEntity;
+import com.circle.circlemod.tools.StyleTool;
+import com.circle.circlemod.tools.TranslateTool;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,6 +16,8 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.List;
+
 /**
  * 升级版—铁镐
  *
@@ -19,11 +25,20 @@ import net.minecraft.world.phys.Vec3;
  * @date 2024/12/14
  */
 public class PickaxeUltra extends PickaxeItem {
+    final int maxUseDuration = 72000;
+
     public PickaxeUltra() {
         super(Tiers.IRON,
                 new Item.Properties().attributes(PickaxeItem.createAttributes(Tiers.IRON, 1.0F, -2.8F)));
+
     }
 
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        TranslateTool.addItemTranslate(tooltipComponents, ResourceLocation.PICKAXE_ULTRA, ResourceLocation.TranslateKey.HOVER, StyleTool.getDefaultHoverFont());
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+    }
 
     /**
      * 释放后，移除当前手持物品，抛出一个物品实体
@@ -51,9 +66,10 @@ public class PickaxeUltra extends PickaxeItem {
         super.releaseUsing(stack, level, livingEntity, timeCharged);
     }
 
+
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        return 72000;
+        return maxUseDuration;
     }
 
     @Override

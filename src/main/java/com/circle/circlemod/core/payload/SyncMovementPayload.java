@@ -3,7 +3,6 @@ package com.circle.circlemod.core.payload;
 import com.circle.circlemod.core.CircleMod;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.codec.ByteBufCodecs;
