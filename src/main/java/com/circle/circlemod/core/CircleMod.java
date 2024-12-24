@@ -1,6 +1,6 @@
 package com.circle.circlemod.core;
 
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.ResourceLocation;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
