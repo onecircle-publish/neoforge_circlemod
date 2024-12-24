@@ -2,7 +2,7 @@ package com.circle.circlemod.datagen.provider;
 
 import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
-import com.circle.circlemod.core.resource.ResourceLocation;
+import com.circle.circlemod.core.resource.CircleResourceLocation;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
@@ -30,7 +30,7 @@ public class LangProvider extends LanguageProvider {
         CircleUniRegister.ITEMS.getEntries()
                                .forEach(itemDeferredHolder -> {
                                    ResourceKey<Item> key = itemDeferredHolder.getKey();
-                                   ResourceLocation enumData = ResourceLocation.findEnum(key);
+                                   CircleResourceLocation enumData = CircleResourceLocation.findEnum(key);
 
                                    // 生成物品翻译
                                    String name = enumData.name;

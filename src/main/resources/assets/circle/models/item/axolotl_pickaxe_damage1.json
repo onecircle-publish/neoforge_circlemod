@@ -1,0 +1,6 @@
+{
+  "parent": "circle:item/axolotl_pickaxe",
+  "textures": {
+    "layer0": "circle:item/axolotl_pickaxe_damage1"
+  }
+}

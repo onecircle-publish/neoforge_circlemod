@@ -1,7 +1,7 @@
 package com.circle.circlemod.core;
 
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
-import com.circle.circlemod.core.resource.ResourceLocation;
+import com.circle.circlemod.core.resource.CircleResourceLocation;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -34,7 +34,7 @@ public class CircleMod {
         CircleUniRegister.ITEMS
                 .getEntries()
                 .forEach(item -> {
-                    LOGGER.info("注册物品：{}", ResourceLocation.findEnum(item.getKey()).name);
+                    LOGGER.info("注册物品：{}", CircleResourceLocation.findEnum(item.getKey()).name);
                 });
     }
 }

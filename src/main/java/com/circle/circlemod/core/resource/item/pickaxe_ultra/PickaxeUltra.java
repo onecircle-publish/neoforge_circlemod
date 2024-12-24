@@ -1,6 +1,6 @@
 package com.circle.circlemod.core.resource.item.pickaxe_ultra;
 
-import com.circle.circlemod.core.resource.ResourceLocation;
+import com.circle.circlemod.core.resource.CircleResourceLocation;
 import com.circle.circlemod.core.resource.entity.vanilla_extends.item_entity.CircleItemEntity;
 import com.circle.circlemod.tools.StyleTool;
 import com.circle.circlemod.tools.TranslateTool;
@@ -35,7 +35,7 @@ public class PickaxeUltra extends PickaxeItem {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        TranslateTool.addItemTranslate(tooltipComponents, ResourceLocation.PICKAXE_ULTRA, ResourceLocation.TranslateKey.HOVER, StyleTool.getDefaultHoverFont());
+        TranslateTool.addItemTranslate(tooltipComponents, CircleResourceLocation.PICKAXE_ULTRA, CircleResourceLocation.TranslateKey.HOVER, StyleTool.getDefaultHoverFont());
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
 
     }

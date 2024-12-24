@@ -1,7 +1,7 @@
 package com.circle.circlemod.tools;
 
 import com.circle.circlemod.core.CircleMod;
-import com.circle.circlemod.core.resource.ResourceLocation;
+import com.circle.circlemod.core.resource.CircleResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 
@@ -16,7 +16,7 @@ public class TranslateTool {
      * @param TranslateKey translate 键
      * @param style        风格
      */
-    public static void addItemTranslate(List<Component> components, ResourceLocation location, ResourceLocation.TranslateKey TranslateKey, Style style) {
+    public static void addItemTranslate(List<Component> components, CircleResourceLocation location, CircleResourceLocation.TranslateKey TranslateKey, Style style) {
         components.add(Component.translatable("item" + "." + CircleMod.MODID + "." + location.key + "." + TranslateKey.key)
                                 .withStyle(style));
     }

@@ -945,7 +945,7 @@ public record SyncMovementPayload(int entityId, Vector3f center, float radius,
 package com.circle.circlemod.core.resource;
 
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
-import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
+import com.circle.circlemod.core.resource.item.axolotl_pickare.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
 
@@ -1192,7 +1192,7 @@ public class CircleItemEntity extends ItemEntity {
 `\\?\D:\code\projects\neoforge_circlemod\src\main\java\com\circle\circlemod\core\resource\item\axolotl_sword\AxolotlSword.java`:
 
 ```java
-package com.circle.circlemod.core.resource.item.axolotl_sword;
+package com.circle.circlemod.core.resource.item.axolotl_pickare;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;

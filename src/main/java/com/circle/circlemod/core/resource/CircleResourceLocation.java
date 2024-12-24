@@ -1,7 +1,6 @@
 package com.circle.circlemod.core.resource;
 
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -12,14 +11,14 @@ import java.util.HashMap;
  * @author yuanxin
  * @date 2024/12/12
  */
-public enum ResourceLocation {
+public enum CircleResourceLocation {
     GOLD_STAFF("gold_staff", "金法杖"),
     PICKAXE_ULTRA("pickaxe_ultra", "超级稿", new HashMap<>() {
         {
             put(TranslateKey.HOVER.key, "一个挖掘神器");
         }
     }),
-    AXOLOTL_SWORD("axolotl_sword", "美西螈剑");
+    AXOLOTL_PICKAXE("axolotl_pickaxe", "美西螈镐");
 
     public final String key;
     public final String name;
@@ -31,7 +30,7 @@ public enum ResourceLocation {
      * @param key  钥匙
      * @param name 名字
      */
-    ResourceLocation(String key, String name) {
+    CircleResourceLocation(String key, String name) {
         this.key = key;
         this.name = name;
 
@@ -43,7 +42,7 @@ public enum ResourceLocation {
      * @param key  钥匙
      * @param name 名字
      */
-    ResourceLocation(String key, String name, @Nullable HashMap<String, String> translateMap) {
+    CircleResourceLocation(String key, String name, @Nullable HashMap<String, String> translateMap) {
         this.key = key;
         this.name = name;
         this.translateMap = translateMap;
@@ -54,9 +53,9 @@ public enum ResourceLocation {
      * 查找枚举
      *
      * @param resourceKey 资源键
-     * @return {@link ResourceLocation }
+     * @return {@link CircleResourceLocation }
      */
-    public static ResourceLocation findEnum(ResourceKey resourceKey) {
+    public static CircleResourceLocation findEnum(ResourceKey resourceKey) {
         return findEnum(resourceKey
                 .location()
                 .getPath());
@@ -66,10 +65,10 @@ public enum ResourceLocation {
      * 查找枚举
      *
      * @param key 钥匙
-     * @return {@link ResourceLocation }
+     * @return {@link CircleResourceLocation }
      */
-    public static ResourceLocation findEnum(String key) {
-        for (ResourceLocation resource : ResourceLocation.values()) {
+    public static CircleResourceLocation findEnum(String key) {
+        for (CircleResourceLocation resource : CircleResourceLocation.values()) {
             if (resource.key.equals(key)) {
                 return resource;
             }
