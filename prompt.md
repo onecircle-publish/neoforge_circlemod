@@ -767,7 +767,7 @@ plugins {
 ```java
 package com.circle.circlemod.core;
 
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.ResourceLocation;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -944,7 +944,7 @@ public record SyncMovementPayload(int entityId, Vector3f center, float radius,
 ```java
 package com.circle.circlemod.core.resource;
 
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
@@ -1503,7 +1503,7 @@ public enum ResourceLocation {
 package com.circle.circlemod.datagen.provider;
 
 import com.circle.circlemod.core.CircleMod;
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.ResourceLocation;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;

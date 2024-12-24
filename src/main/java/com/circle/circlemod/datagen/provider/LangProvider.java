@@ -1,7 +1,7 @@
 package com.circle.circlemod.datagen.provider;
 
 import com.circle.circlemod.core.CircleMod;
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.ResourceLocation;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;

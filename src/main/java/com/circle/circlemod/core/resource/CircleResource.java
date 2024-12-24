@@ -1,6 +1,6 @@
 package com.circle.circlemod.core.resource;
 
-import com.circle.circlemod.core.build.register.CircleUniRegister;
+import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
