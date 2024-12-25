@@ -1,6 +1,9 @@
 {
+  "item.circle.axolotl_bow": "美西螈弓",
   "item.circle.axolotl_pickaxe": "美西螈镐",
+  "item.circle.axolotl_sword": "美西螈剑",
   "item.circle.gold_staff": "金法杖",
   "item.circle.pickaxe_ultra": "超级稿",
-  "item.circle.pickaxe_ultra.hover": "一个挖掘神器"
+  "item.circle.pickaxe_ultra.hover": "一个挖掘神器",
+  "itemGroup.circle.creative": "CircleMod"
 }

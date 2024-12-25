@@ -3,11 +3,12 @@ package com.circle.circlemod.core.builds.register;
 import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.resource.CircleResource;
 import com.circle.circlemod.core.resource.CircleResourceLocation;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -15,32 +16,41 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.HashMap;
 import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 
 public class CircleUniRegister {
     /**
      * 项目注册表
      */
     public static HashMap<CircleResourceLocation, DeferredHolder<Item, Item>> ITEMS_REGISTRY = new HashMap<>();
-    /**
-     * 组件注册表
-     */
-    public static HashMap<String, DeferredHolder<DataComponentType<?>, DataComponentType<?>>> COMPONENTS_REGISTRY = new HashMap<>();
-
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, CircleMod.MODID);
     public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, CircleMod.MODID);
+    public static DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CircleMod.MODID);
+
 
     /**
-     * 数组组件，用于给ItemStack绑定持久化数据
+     * 注册创意模式选项卡
      */
-    public static DeferredRegister<DataComponentType<?>> DATA_COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, CircleMod.MODID);
+    public void registerCreativeModeTabs() {
+        CREATIVE_MODE_TABS.register("circle", () -> CreativeModeTab.builder()
+                                                                   .title(Component.translatable("itemGroup." + CircleMod.MODID + ".creative"))
+                                                                   .icon(() -> new ItemStack(CircleUniRegister.ITEMS_REGISTRY.get(CircleResourceLocation.GOLD_STAFF)))
+                                                                   .displayItems(((parameters, output) -> {
+                                                                       CircleUniRegister.ITEMS.getEntries()
+                                                                                              .forEach(item -> {
+                                                                                                  output.accept(item.get());
+                                                                                              });
+                                                                   }))
+                                                                   .build());
+    }
 
 
     public CircleUniRegister(IEventBus eventBus) {
         new CircleResource();
         ITEMS.register(eventBus);
         BLOCKS.register(eventBus);
-        DATA_COMPONENTS.register(eventBus);
+        CREATIVE_MODE_TABS.register(eventBus);
+        registerCreativeModeTabs();
+
     }
 
     /**
@@ -55,20 +65,4 @@ public class CircleUniRegister {
 
         return register;
     }
-
-    /**
-     * 注册数据组件
-     *
-     * @param name    名字
-     * @param builder 建筑工人
-     * @return {@link DeferredHolder }<{@link DataComponentType }<{@link ? }>, {@link DataComponentType }<{@link T }>>
-     */
-    public static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>> registerDataComponents(String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
-        DeferredHolder<DataComponentType<?>, DataComponentType<T>> register = DATA_COMPONENTS.register(name, () -> builder.apply(DataComponentType.builder())
-                                                                                                                          .build());
-
-
-        return register;
-    }
-
 }

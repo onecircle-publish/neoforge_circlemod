@@ -41,5 +41,7 @@ public class LangProvider extends LanguageProvider {
                                    HashMap<String, String> translateKeyValueList = enumData.getTranslateKeyValueList(descriptionId);
                                    addMapTranslate(translateKeyValueList);
                                });
+
+        this.add("itemGroup.circle.creative","CircleMod");
     }
 }

@@ -1,7 +1,9 @@
 package com.circle.circlemod.core.resource;
 
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
+import com.circle.circlemod.core.resource.item.axolotl_bow.AxolotlBow;
 import com.circle.circlemod.core.resource.item.axolotl_pickare.AxolotlPickaxe;
+import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
 
@@ -18,6 +20,8 @@ public class CircleResource {
         CircleUniRegister.registerItem(CircleResourceLocation.GOLD_STAFF, GoldStaff::new);
         CircleUniRegister.registerItem(CircleResourceLocation.PICKAXE_ULTRA, () -> new PickaxeUltra());
         CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_PICKAXE, AxolotlPickaxe::new);
+        CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_SWORD, AxolotlSword::new);
+        CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_BOW, AxolotlBow::new);
 
     }
 }

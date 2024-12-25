@@ -1,4 +1,4 @@
-package com.circle.circlemod.core.resource.item.axolotl_pickare;
+package com.circle.circlemod.core.resource.item.axolotl_sword;
 
 import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
@@ -9,52 +9,35 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
+public class AxolotlSword extends SwordItem {
+    public AxolotlCability cability = new AxolotlCability();
 
-/**
- * 美西螈镐
- *
- * @author yuanxin
- * @date 2024/12/23
- */
-public class AxolotlPickaxe extends PickaxeItem {
-    private AxolotlCability cability = new AxolotlCability();
-
-    public AxolotlPickaxe() {
-        super(Tiers.IRON, new Item.Properties().durability(2)
-                                               .attributes(PickaxeItem.createAttributes(Tiers.IRON, 1, -2.1F)));
+    public AxolotlSword() {
+        super(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.WOOD, 1, -2.4F)));
     }
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return 3;
+        return 2;
     }
 
     public static void registerItemProperty() {
-        ItemProperties.register(CircleUniRegister.ITEMS_REGISTRY.get(CircleResourceLocation.AXOLOTL_PICKAXE)
+        ItemProperties.register(CircleUniRegister.ITEMS_REGISTRY.get(CircleResourceLocation.AXOLOTL_SWORD)
                                                                 .get(), ResourceLocation.fromNamespaceAndPath(CircleMod.MODID, "count"), (itemStack, clientWorld, livingEntity, num) -> {
             int damageValue = itemStack.getDamageValue();
             if (damageValue == 0) return 0;
-            else if (damageValue == 1) return 1;
-            else return 2;
+            else return 1;
         });
-    }
-
-    @Override
-    public void setDamage(ItemStack stack, int damage) {
-        super.setDamage(stack, damage);
-    }
-
-    @Override
-    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
-        if (stack.getMaxDamage() - stack.getDamageValue() > 1) return 1;
-        return 0;
     }
 
     @Override
@@ -63,9 +46,16 @@ public class AxolotlPickaxe extends PickaxeItem {
         cability.repire(level, stack);
     }
 
+
     @Override
-    public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity miningEntity) {
+    public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
+        if (stack.getMaxDamage() - stack.getDamageValue() > 1) return 1;
+        return 0;
+    }
+
+    @Override
+    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         cability.refreshRepairTimer();
-        return super.mineBlock(stack, level, state, pos, miningEntity);
+        return super.hurtEnemy(stack, target, attacker);
     }
 }

@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "circle:item/axolotl_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "circle:count": 1
+      },
+      "model": "circle:item/axolotl_sword_damage1"
+    }
+  ]
+}

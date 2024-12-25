@@ -18,7 +18,9 @@ public enum CircleResourceLocation {
             put(TranslateKey.HOVER.key, "一个挖掘神器");
         }
     }),
-    AXOLOTL_PICKAXE("axolotl_pickaxe", "美西螈镐");
+    AXOLOTL_PICKAXE("axolotl_pickaxe", "美西螈镐"),
+    AXOLOTL_SWORD("axolotl_sword", "美西螈剑"),
+    AXOLOTL_BOW("axolotl_bow", "美西螈弓");
 
     public final String key;
     public final String name;
