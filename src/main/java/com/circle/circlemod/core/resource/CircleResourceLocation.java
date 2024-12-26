@@ -20,7 +20,10 @@ public enum CircleResourceLocation {
     }),
     AXOLOTL_PICKAXE("axolotl_pickaxe", "美西螈镐"),
     AXOLOTL_SWORD("axolotl_sword", "美西螈剑"),
-    AXOLOTL_BOW("axolotl_bow", "美西螈弓");
+    AXOLOTL_BOW("axolotl_bow", "美西螈弓"),
+
+    //  ---- 实体
+    AXOLOTL_ARROW("axolotl_arrow", "美西螈箭");
 
     public final String key;
     public final String name;
