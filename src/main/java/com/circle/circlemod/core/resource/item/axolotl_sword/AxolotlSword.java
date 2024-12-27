@@ -4,9 +4,13 @@ import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.cability.AxolotlCability;
 import com.circle.circlemod.core.resource.CircleResourceLocation;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ParticleUtils;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -56,6 +60,19 @@ public class AxolotlSword extends SwordItem {
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         cability.refreshRepairTimer();
-        return super.hurtEnemy(stack, target, attacker);
+        float health = target.getHealth();
+        if (stack.getMaxDamage() - stack.getDamageValue() <= 1) {
+            target.setHealth(health + 1);
+
+            if (!target.level().isClientSide) {
+                ClientLevel level = Minecraft.getInstance().level;
+                if (level != null) {
+                    ParticleUtils.spawnParticles(level, target.blockPosition(), 6, 1, 1, true, ParticleTypes.HEART);
+                }
+            }
+        } else {
+            return super.hurtEnemy(stack, target, attacker);
+        }
+        return true;
     }
 }
