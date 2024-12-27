@@ -11,9 +11,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 
@@ -66,6 +69,32 @@ public class AxolotlPickaxe extends PickaxeItem {
     @Override
     public boolean mineBlock(ItemStack stack, Level level, BlockState state, BlockPos pos, LivingEntity miningEntity) {
         cability.refreshRepairTimer();
+        if (this.getMaxDamage(stack) - stack.getDamageValue() == 1) {
+            if (!state.isEmpty() && !state.isAir()) {
+                BlockPos above = pos.above();
+                BlockPos below = pos.below();
+                BlockPos east = pos.east();
+                BlockPos west = pos.west();
+                BlockPos north = pos.north();
+                BlockPos south = pos.south();
+
+                ArrayList<BlockPos> list = new ArrayList<>();
+                list.add(above);
+                list.add(below);
+                list.add(east);
+                list.add(west);
+                list.add(north);
+                list.add(south);
+
+                list.forEach(blockPos -> {
+                    BlockState blockState = level.getBlockState(blockPos);
+                    if (blockState.isEmpty() || blockState.isAir()) {
+                        level.setBlock(blockPos, state, 2);
+                    }
+                });
+            }
+
+        }
         return super.mineBlock(stack, level, state, pos, miningEntity);
     }
 }
