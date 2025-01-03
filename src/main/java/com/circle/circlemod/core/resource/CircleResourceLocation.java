@@ -1,6 +1,8 @@
 package com.circle.circlemod.core.resource;
 
+import com.circle.circlemod.core.CircleMod;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ public enum CircleResourceLocation {
     AXOLOTL_PICKAXE("axolotl_pickaxe", "美西螈镐"),
     AXOLOTL_SWORD("axolotl_sword", "美西螈剑"),
     AXOLOTL_BOW("axolotl_bow", "美西螈弓"),
+    CHEST_SHIELD("chest_shield", "存钱罐盾"),
 
     //  ---- 实体
     AXOLOTL_ARROW("axolotl_arrow", "美西螈箭");
@@ -53,6 +56,14 @@ public enum CircleResourceLocation {
         this.translateMap = translateMap;
     }
 
+    /**
+     * 获取MC内置资源位置
+     *
+     * @return {@link ResourceLocation }
+     */
+    public ResourceLocation getResourceLocation() {
+        return ResourceLocation.fromNamespaceAndPath(CircleMod.MODID, this.key);
+    }
 
     /**
      * 查找枚举

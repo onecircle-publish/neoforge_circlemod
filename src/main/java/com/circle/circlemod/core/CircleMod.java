@@ -10,6 +10,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.model.obj.ObjLoader;
 import org.slf4j.Logger;
 
 import static com.circle.circlemod.core.builds.register.CircleUniRegister.CREATIVE_MODE_TABS;
@@ -31,8 +32,8 @@ public class CircleMod {
      */
     public CircleMod(IEventBus bus, ModContainer modContainer) {
         bus.addListener(this::commonSetup);
-
         circleUniRegister = new CircleUniRegister(bus);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

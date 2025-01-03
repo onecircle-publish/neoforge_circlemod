@@ -34,6 +34,8 @@ repositories {
         }
     }
 
+    maven { url 'https://maven.azuredoom.com/mods' }
+
 }
 
 base {
@@ -153,7 +155,8 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+//    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
+    implementation "mod.azure.azurelib:azurelib-neo-${minecraft_version}:2.3.28"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

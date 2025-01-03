@@ -8,6 +8,7 @@ import com.circle.circlemod.core.resource.item.axolotl_pickare.AxolotlPickaxe;
 import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
 import com.circle.circlemod.core.resource.item.goldstaff.GoldStaff;
 import com.circle.circlemod.core.resource.item.pickaxe_ultra.PickaxeUltra;
+import com.circle.circlemod.core.resource.item.chest_shield.ChestShield;
 import net.minecraft.world.entity.MobCategory;
 
 
@@ -25,6 +26,7 @@ public class CircleResource {
         CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_PICKAXE, AxolotlPickaxe::new);
         CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_SWORD, AxolotlSword::new);
         CircleUniRegister.registerItem(CircleResourceLocation.AXOLOTL_BOW, AxolotlBow::new);
+        CircleUniRegister.registerItem(CircleResourceLocation.CHEST_SHIELD, ChestShield::new);
 
         CircleUniRegister.<AxolotlArrow>registerEntity(CircleResourceLocation.AXOLOTL_ARROW, AxolotlArrow::new, AxolotlArrowRenderer::new, MobCategory.CREATURE);
     }
