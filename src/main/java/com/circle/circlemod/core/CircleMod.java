@@ -33,7 +33,6 @@ public class CircleMod {
     public CircleMod(IEventBus bus, ModContainer modContainer) {
         bus.addListener(this::commonSetup);
         circleUniRegister = new CircleUniRegister(bus);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
