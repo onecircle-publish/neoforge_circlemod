@@ -3,6 +3,7 @@ package com.circle.circlemod.core.event;
 import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.resource.item.axolotl_pickare.AxolotlPickaxe;
 import com.circle.circlemod.core.resource.item.axolotl_sword.AxolotlSword;
+import com.circle.circlemod.core.resource.item.chest_shield.ChestShield;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -26,6 +27,8 @@ public class PropertyRegistry {
         event.enqueueWork(() -> {
             AxolotlPickaxe.registerItemProperty();
             AxolotlSword.registerItemProperty();
+
+            ChestShield.registerItemProperty();
         });
     }
 }

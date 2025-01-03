@@ -3,20 +3,26 @@ package com.circle.circlemod.core.event;
 import com.circle.circlemod.core.CircleMod;
 import com.circle.circlemod.core.builds.register.CircleUniRegister;
 import com.circle.circlemod.core.resource.CircleResourceLocation;
+import com.circle.circlemod.core.resource.item.chest_shield.ChestShield;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.IModBusEvent;
+import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 @EventBusSubscriber(modid = CircleMod.MODID, bus = EventBusSubscriber.Bus.GAME)
-public class ItemUseEvent implements IModBusEvent {
+public class ItemEvents implements IModBusEvent {
 
     @SubscribeEvent
     public static void itemUseEvent(PlayerInteractEvent.EntityInteractSpecific event) {
@@ -46,4 +52,6 @@ public class ItemUseEvent implements IModBusEvent {
             }
         }
     }
+
+
 }

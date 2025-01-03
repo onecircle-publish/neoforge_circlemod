@@ -94,13 +94,13 @@
   ],
   "display": {
     "thirdperson_righthand": {
-      "rotation": [10.58, -61.16, -6.96],
-      "translation": [6.5, -7.25, 1.5],
-      "scale": [1.64, 1.64, 1.64]
+      "rotation": [37, -5, 41],
+      "translation": [3.5, -0.5, -1.25],
+      "scale": [1.28, 1.28, 1.28]
     },
     "firstperson_righthand": {
-      "rotation": [-20, -75, 0],
-      "translation": [2.5, -0.75, -0.5]
+      "rotation": [0, 0, 32],
+      "translation": [-2, 0, -0.5]
     },
     "firstperson_lefthand": {
       "translation": [1.25, 0, 0]
@@ -113,14 +113,6 @@
       "scale": [0.55, 0.55, 0.55]
     }
   },
-  "overrides": [
-    {
-      "predicate": {
-        "circle:blocking": 1
-      },
-      "model": "circle:item/chest_shield_blocking"
-    }
-  ],
   "groups": [
     {
       "name": "plate",
